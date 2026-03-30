@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBooster — Best FakeLag on this time</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://pl28957322.profitablecpmratenetwork.com/67/80/60/6780604853e95fcf0ec19f9571715fa6.js"></script>
+    <style>
+      :root {
+        --bg: #04060d;
+        --card: rgba(10, 14, 26, 0.85);
+        --accent: #00e5ff;
+        --accent2: #7b61ff;
+        --green: #00ffaa;
+        --text: #e8eaf0;
+        --muted: rgba(200, 210, 230, 0.45);
+        --border: rgba(0, 229, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .bg-grid {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      .bg-orb {
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+        border-radius: 50%;
+        filter: blur(80px);
+        animation: orbFloat 10s ease-in-out infinite alternate;
+      }
+
+      .bg-orb-1 {
+        width: 700px;
+        height: 700px;
+        top: -200px;
+        left: -200px;
+        background: rgba(0, 229, 255, 0.055);
+      }
+
+      .bg-orb-2 {
+        width: 500px;
+        height: 500px;
+        bottom: -100px;
+        right: -100px;
+        background: rgba(123, 97, 255, 0.06);
+        animation-delay: -4s;
+      }
+
+      .bg-orb-3 {
+        width: 400px;
+        height: 400px;
+        top: calc(50% - 200px);
+        left: calc(50% - 200px);
+        background: rgba(0, 255, 170, 0.03);
+        animation-delay: -7s;
+      }
+
+      @keyframes orbFloat {
+        from {
+          transform: scale(1) translate(0, 0);
+        }
+
+        to {
+          transform: scale(1.15) translate(20px, -20px);
+        }
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(4, 6, 13, 0.7);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-brand {
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 10px var(--green);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        50% {
+          opacity: 0.6;
+          transform: scale(0.85);
+        }
+      }
+
+      .nav-badge {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.62rem;
+        color: var(--accent);
+        background: rgba(0, 229, 255, 0.1);
+        border: 1px solid rgba(0, 229, 255, 0.25);
+        padding: 3px 10px;
+        border-radius: 20px;
+      }
+
+      section {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 24px 60px;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeUp 0.6s ease 0.1s forwards;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 8vw, 5.5rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -2px;
+        margin-bottom: 24px;
+        opacity: 0;
+        animation: fadeUp 0.6s ease 0.25s forwards;
+      }
+
+      .hero-title .grad {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-sub {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 480px;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        opacity: 0;
+        animation: fadeUp 0.6s ease 0.4s forwards;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        opacity: 0;
+        animation: fadeUp 0.6s ease 0.55s forwards;
+      }
+
+      .btn-cta {
+        padding: 14px 28px;
+        border-radius: 14px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+
+        transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+      }
+
+      .btn-cta.primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: #000;
+        box-shadow: 0 4px 30px rgba(0, 229, 255, 0.2);
+      }
+
+      .btn-cta.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 40px rgba(0, 229, 255, 0.35);
+      }
+
+      .btn-cta.ghost {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .btn-cta.ghost:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(0, 229, 255, 0.3);
+      }
+
+      .hero-scroll {
+        margin-top: 60px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        animation: fadeUp 0.6s ease 0.7s forwards;
+
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .hero-scroll i {
+        animation: bounce 1.5s infinite;
+      }
+
+      @keyframes bounce {
+
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(5px);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stats {
+        padding: 40px 24px;
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: rgba(10, 14, 26, 0.5);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-item {
+        flex: 1;
+        max-width: 180px;
+        text-align: center;
+        padding: 16px;
+        position: relative;
+      }
+
+      .stat-item+.stat-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .stat-num {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--accent);
+        display: block;
+      }
+
+      .stat-lbl {
+        font-size: 0.7rem;
+        color: var(--muted);
+        margin-top: 4px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .features {
+        padding: 100px 24px;
+      }
+
+      .section-label {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-label .tag {
+        font-size: 0.65rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .section-label h2 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.1;
+      }
+
+      .section-label p {
+        color: var(--muted);
+        margin-top: 12px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .feat-grid {
+        max-width: 760px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .feat-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px;
+        backdrop-filter: blur(16px);
+        position: relative;
+        overflow: hidden;
+        transition: border-color 0.3s, transform 0.2s;
+      }
+
+      .feat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .feat-card:hover {
+        border-color: rgba(0, 229, 255, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .feat-card:hover::before {
+        opacity: 0.6;
+      }
+
+      .feat-card.accent2:hover {
+        border-color: rgba(123, 97, 255, 0.3);
+      }
+
+      .feat-card.accent2::before {
+        background: linear-gradient(90deg, transparent, var(--accent2), transparent);
+      }
+
+      .feat-card.green:hover {
+        border-color: rgba(0, 255, 170, 0.3);
+      }
+
+      .feat-card.green::before {
+        background: linear-gradient(90deg, transparent, var(--green), transparent);
+      }
+
+      .feat-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+
+      .feat-icon.c1 {
+        background: rgba(0, 229, 255, 0.1);
+        color: var(--accent);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+      }
+
+      .feat-icon.c2 {
+        background: rgba(123, 97, 255, 0.1);
+        color: var(--accent2);
+        border: 1px solid rgba(123, 97, 255, 0.2);
+      }
+
+      .feat-icon.c3 {
+        background: rgba(0, 255, 170, 0.08);
+        color: var(--green);
+        border: 1px solid rgba(0, 255, 170, 0.18);
+      }
+
+      .feat-icon.c4 {
+        background: rgba(255, 204, 0, 0.08);
+        color: #ffcc00;
+        border: 1px solid rgba(255, 204, 0, 0.18);
+      }
+
+      .feat-icon.c5 {
+        background: rgba(255, 77, 109, 0.08);
+        color: #ff4d6d;
+        border: 1px solid rgba(255, 77, 109, 0.18);
+      }
+
+      .feat-icon.c6 {
+        background: rgba(0, 229, 255, 0.06);
+        color: var(--accent);
+        border: 1px solid rgba(0, 229, 255, 0.15);
+      }
+
+      .feat-title {
+        font-size: 1rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      .feat-desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .how {
+        padding: 80px 24px 100px;
+      }
+
+      .steps {
+        max-width: 560px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .step {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        padding: 24px 0;
+        position: relative;
+      }
+
+      .step+.step::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 19px;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--border), transparent);
+      }
+
+      .step-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        flex-shrink: 0;
+        background: rgba(0, 229, 255, 0.08);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent);
+        z-index: 1;
+      }
+
+      .step-content h4 {
+        font-size: 0.95rem;
+        font-weight: 800;
+        margin-bottom: 6px;
+      }
+
+      .step-content p {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cta-section {
+        padding: 60px 24px 100px;
+      }
+
+      .cta-card {
+        max-width: 680px;
+        margin: 0 auto;
+        background: var(--card);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-radius: 28px;
+        padding: 48px 40px;
+        text-align: center;
+        backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 80px rgba(0, 229, 255, 0.06);
+      }
+
+      .cta-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      }
+
+      .cta-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 0%, rgba(0, 229, 255, 0.05), transparent 60%);
+        pointer-events: none;
+      }
+
+      .cta-title {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .cta-icon {
+        font-size: 3rem;
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        display: block;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.4));
+        animation: floatIcon 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes floatIcon {
+        from {
+          transform: translateY(0);
+        }
+
+        to {
+          transform: translateY(-8px);
+        }
+      }
+
+      .cta-sub {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 36px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn-big {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 40px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: #000;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 40px rgba(0, 229, 255, 0.25);
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-big::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .btn-big:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 50px rgba(0, 229, 255, 0.4);
+      }
+
+      .btn-big:hover::after {
+        opacity: 1;
+      }
+
+      .btn-big:active {
+        transform: translateY(0);
+      }
+
+      .cta-note {
+        margin-top: 16px;
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+
+      footer {
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid var(--border);
+        background: rgba(10, 14, 26, 0.6);
+        backdrop-filter: blur(12px);
+        padding: 32px 24px;
+      }
+
+      .footer-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .footer-copy {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .footer-copy span {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 18px;
+      }
+
+      .footer-links a {
+        font-size: 0.75rem;
+        color: rgba(0, 229, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.2s;
+
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      @media (max-width: 500px) {
+        .hero-title {
+          letter-spacing: -1px;
+        }
+
+        .cta-card {
+          padding: 36px 24px;
+        }
+
+        .stats {
+          flex-wrap: wrap;
+        }
+
+        .btn-big {
+          padding: 16px 28px;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+
+    <nav>
+      <div class="nav-brand">
+        <div class="nav-dot"></div>
+        Game<span>Booster</span>
+      </div>
+      <span class="nav-badge">v1.5</span>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-eyebrow">⚡ FakeLag — Android</div>
+      <h1 class="hero-title">
+        Tối ưu game.<br>
+        <span class="grad">Không giới hạn.</span>
+      </h1>
+      <p class="hero-sub">
+        GameBooster là phần mềm giả lag tốt nhất ở thời điểm hiện tại — nhẹ, nhanh, không cần root, chạy hoàn toàn ngầm và đặc biệt là không can thiệp vào game.
+      </p>
+      <div class="hero-btns">
+        <a href="download.html" class="btn-cta primary"><i class="fas fa-download"></i> Tải Xuống Ngay</a>
+        <a href="#features" class="btn-cta ghost"><i class="fas fa-sparkles"></i> Tính năng</a>
+      </div>
+      <div class="hero-scroll">
+        CUỘN XUỐNG <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-num">1.5</span>
+        <div class="stat-lbl">Phiên bản hiện tại</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">8MB</span>
+        <div class="stat-lbl">Kích thước nhỏ gọn</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">0</span>
+        <div class="stat-lbl">Không cần Root</div>
+      </div>
+    </div>
+
+    <section class="features" id="features">
+      <div class="section-label">
+        <span class="tag">Tính năng</span>
+        <h2>Mọi thứ bạn cần<br>trong một app</h2>
+        <p>Được thiết kế tối giản, hoạt động ổn định trên mọi thiết bị Android.</p>
+      </div>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon c1"><i class="fas fa-bolt"></i></div>
+          <div class="feat-title">Nhẹ & Nhanh</div>
+          <div class="feat-desc">Chỉ 9MB, khởi động tức thì, không ngốn RAM hay pin khi chạy ngầm.</div>
+        </div>
+        <div class="feat-card accent2">
+          <div class="feat-icon c2"><i class="fas fa-shield-halved"></i></div>
+          <div class="feat-title">Không cần Root</div>
+          <div class="feat-desc">Hoạt động hoàn toàn bình thường mà không cần quyền root hay mở khóa bootloader.</div>
+        </div>
+        <div class="feat-card green">
+          <div class="feat-icon c3"><i class="fas fa-key"></i></div>
+          <div class="feat-title">Hệ thống Key bảo mật</div>
+          <div class="feat-desc">Xác thực key qua server, hỗ trợ key vip custom được theo tên mình.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon c4"><i class="fas fa-cloud"></i></div>
+          <div class="feat-title">Đăng nhập tức thì</div>
+          <div class="feat-desc">Lưu trạng thái local — mở app lại không cần đợi kết nối mạng hay Firebase.</div>
+        </div>
+        <div class="feat-card accent2">
+          <div class="feat-icon c5"><i class="fas fa-ban"></i></div>
+          <div class="feat-title">Bảo trì từ xa</div>
+          <div class="feat-desc">Admin kiểm soát toàn bộ hệ thống từ web — bật bảo trì, ban thiết bị, cập nhật config.</div>
+        </div>
+        <div class="feat-card green">
+          <div class="feat-icon c6"><i class="fas fa-mobile-screen"></i></div>
+          <div class="feat-title">Tương thích rộng</div>
+          <div class="feat-desc">Hỗ trợ Android 7.0 trở lên, tối ưu cho cả máy cấu hình thấp.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="section-label">
+        <span class="tag">Hướng dẫn</span>
+        <h2>Dùng ngay trong<br>3 bước đơn giản</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h4>Tải APK về máy</h4>
+            <p>Nhấn nút tải xuống, chờ file APK về máy. Dung lượng chỉ 9MB, tải nhanh trên mọi mạng.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h4>Cài đặt & lấy Key</h4>
+            <p>Mở app, nhấn "Get Key" để lấy key miễn phí qua link. Vượt link xong key hiện tự động.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h4>Nhập Key & vào app</h4>
+            <p>Dán key vào ô nhập, nhấn Xác nhận. App sẽ nhớ đăng nhập, lần sau mở là vào thẳng.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-card">
+        <h2 class="cta-title">
+          Sẵn sàng trải nghiệm?
+        </h2>
+        <p class="cta-sub">Tải về ngay hôm nay — miễn phí, không cần root, cài trong 30 giây.</p>
+        <a href="download.html" class="btn-big">
+          <i class="fas fa-download"></i>
+          Sử Dụng Ngay Bây Giờ
+        </a>
+        <div class="cta-note">Miễn phí · Android 7.0+ · 8MB</div>
+      </div>
+    </section>
+
+    <div style="position:relative;z-index:1;display:flex;justify-content:center;padding:0 24px 40px;">
+      <script>
+        atOptions = {
+          'key': '53390f363529fb0c7b3813e12ae87e0a',
+          'format': 'iframe',
+          'height': 250,
+          'width': 300,
+          'params': {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/53390f363529fb0c7b3813e12ae87e0a/invoke.js"></script>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-copy">
+          © 2026 <span>GameBooster</span> · All rights reserved
+        </div>
+        <div class="footer-links">
+          <a href="terms.html">Điều khoản</a>
+          <a href="privacy.html">Bảo mật</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameBooster - Key Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050508;
+      --card: rgba(20, 20, 25, 0.6);
+      --accent: #00e5ff;
+      --text: #ffffff;
+      --muted: #94a3b8;
+      --red: #ff2d55;
+      --border: rgba(255, 255, 255, 0.08);
+      --gold: #ffd700;
+      --green: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      backdrop-filter: blur(24px);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.8rem;
+      color: var(--accent);
+      text-shadow: 0 0 20px var(--accent);
+      letter-spacing: 4px;
+    }
+
+    .tagline {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .sec-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .key-type-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .key-type-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      text-align: center;
+    }
+
+    .key-type-card:hover { border-color: rgba(0, 229, 255, 0.4); }
+
+    .key-type-card.selected-12h {
+      border-color: var(--accent);
+      background: rgba(0, 229, 255, 0.08);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
+    }
+
+    .key-type-card.selected-24h {
+      border-color: var(--gold);
+      background: rgba(255, 215, 0, 0.07);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.12);
+    }
+
+    .key-type-card .type-hours {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .key-type-card.selected-12h .type-hours {
+      color: var(--accent);
+      text-shadow: 0 0 14px rgba(0, 229, 255, 0.5);
+    }
+
+    .key-type-card.selected-24h .type-hours {
+      color: var(--gold);
+      text-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
+    }
+
+    .key-type-card .type-meta {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 6px;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 20px 0;
+    }
+
+    .btn-gen {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent) 0%, #0080ff 100%);
+      color: #000;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-gen:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(0, 229, 255, 0.3);
+    }
+
+    .btn-gen:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-gen.gold {
+      background: linear-gradient(135deg, var(--gold) 0%, #ff8c00 100%);
+    }
+
+    .btn-spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .message-box {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-family: 'Share Tech Mono', monospace;
+      display: none;
+    }
+
+    .message-box.error {
+      background: rgba(255, 45, 85, 0.08);
+      border: 1px solid rgba(255, 45, 85, 0.3);
+      color: var(--red);
+    }
+
+    .message-box.success {
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: var(--green);
+    }
+
+    .message-box.show { display: block; }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="logo">Game Booster</div>
+      <div class="tagline">Key Generation System</div>
+    </div>
+
+    <div class="sec-label">Chọn loại key</div>
+    <div class="key-type-selector">
+      <div class="key-type-card selected-12h" id="card12h" onclick="selectType(12)">
+        <div class="type-hours">12H</div>
+        <div class="type-meta">1 LINK</div>
+      </div>
+      <div class="key-type-card" id="card24h" onclick="selectType(24)">
+        <div class="type-hours">24H</div>
+        <div class="type-meta">2 LINKS</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="btn-gen" id="btnGen" onclick="generate()">
+      <span class="btn-text">[ TẠO KEY ]</span>
+    </button>
+
+    <div class="message-box" id="messageBox"></div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════
+    // CONFIG - hardcoded, không load từ server
+    // ═══════════════════════════════════════════════════════════
+    const CONFIG = {
+      FIREBASE_URL: "https://xp4mt9vqa82l-default-rtdb.asia-southeast1.firebasedatabase.app",
+      FIREBASE_SECRET: "kbAS9LzWorjvm4nQCwJF5yKY4fxJNwntUgO8m8wL",
+      CALLBACK_URL: "https://gamebooster.thedev.me/getkey",
+      KEY_PREFIX: "GameBooster-",
+      KEY_CHARSET: "abcdefghijklmnopqrstuvwxyz",
+      KEY_SEGMENTS: 4,
+      KEY_CHARS_PER_SEG: 4,
+      LINK4M_12H: "69986a45fdc37d7e7135022c",
+      LINK4M_24H: "692c2c794975965623647ae8",
+      TAPLAYMA_TOKEN: "49565da5-e169-4d53-a4e5-0a5fe8c8a34e",
+      MAX_DEVICES: 1
+    };
+
+    let selectedHours = 12;
+
+    // ── UI ──────────────────────────────────────────────────────
+    function selectType(hours) {
+      selectedHours = hours;
+      const c12 = document.getElementById('card12h');
+      const c24 = document.getElementById('card24h');
+      const btn = document.getElementById('btnGen');
+      if (hours === 12) {
+        c12.className = 'key-type-card selected-12h';
+        c24.className = 'key-type-card';
+        btn.classList.remove('gold');
+      } else {
+        c12.className = 'key-type-card';
+        c24.className = 'key-type-card selected-24h';
+        btn.classList.add('gold');
+      }
+    }
+
+    function showError(msg) {
+      const box = document.getElementById('messageBox');
+      box.textContent = msg;
+      box.className = 'message-box error show';
+    }
+
+    function showSuccess(msg) {
+      const box = document.getElementById('messageBox');
+      box.textContent = msg;
+      box.className = 'message-box success show';
+    }
+
+    // ── GENERATE KEY ────────────────────────────────────────────
+    function generateKey() {
+      const { KEY_CHARSET, KEY_SEGMENTS, KEY_CHARS_PER_SEG, KEY_PREFIX } = CONFIG;
+      let key = KEY_PREFIX;
+      for (let i = 0; i < KEY_SEGMENTS; i++) {
+        let seg = '';
+        for (let j = 0; j < KEY_CHARS_PER_SEG; j++) {
+          seg += KEY_CHARSET.charAt(Math.floor(Math.random() * KEY_CHARSET.length));
+        }
+        key += (i === 0 ? '' : '-') + seg;
+      }
+      return key;
+    }
+
+    // ── TÍNH THỜI GIAN HẾT HẠN (UTC+7) ─────────────────────────
+    function calculateExpiration(hours) {
+      const vnTime = new Date(Date.now() + (hours + 7) * 3600000);
+      const yyyy = vnTime.getUTCFullYear();
+      const mm   = String(vnTime.getUTCMonth() + 1).padStart(2, '0');
+      const dd   = String(vnTime.getUTCDate()).padStart(2, '0');
+      const hh   = String(vnTime.getUTCHours()).padStart(2, '0');
+      return {
+        ExpiredDay:  `${dd}/${mm}/${yyyy} ${hh}:00`,
+        ExpiredDate: `${yyyy}-${mm}-${dd}-${hh}`
+      };
+    }
+
+    // ── SHORTEN URLS ────────────────────────────────────────────
+    async function shortenLink4m(apiKey, targetUrl) {
+      const res = await fetch(
+        `https://link4m.co/api-shorten/v2?api=${apiKey}&url=${encodeURIComponent(targetUrl)}`
+      );
+      if (!res.ok) throw new Error(`Link4m HTTP ${res.status}`);
+      const data = await res.json();
+      const url = data.shortenedUrl || data.shortened || data.short_url || data.url || data.link;
+      if (!url) throw new Error('Link4m không trả về link rút gọn');
+      return url;
+    }
+
+    async function wrapTaplayma(targetUrl) {
+      const { TAPLAYMA_TOKEN } = CONFIG;
+      const res = await fetch(
+        `https://api.taplayma.com/api?token=${TAPLAYMA_TOKEN}&url=${encodeURIComponent(targetUrl)}&alias=`
+      );
+      if (!res.ok) throw new Error(`Taplayma HTTP ${res.status}`);
+      const data = await res.json();
+      const url = data.shortenedUrl || data.shortened || data.short_url || data.url || data.link;
+      if (!url) throw new Error('Taplayma không trả về link rút gọn');
+      return url;
+    }
+
+    // ── LƯU KEY LÊN FIREBASE ────────────────────────────────────
+    async function saveKeyToFirebase(key, hours) {
+      const exp = calculateExpiration(hours);
+      const vnNow = new Date(Date.now() + 7 * 3600000);
+      const createdAt = vnNow.getUTCFullYear() + '-'
+        + String(vnNow.getUTCMonth() + 1).padStart(2, '0') + '-'
+        + String(vnNow.getUTCDate()).padStart(2, '0');
+
+      const keyData = {
+        ExpiredDay:  exp.ExpiredDay,
+        ExpiredDate: exp.ExpiredDate,
+        CreatedAt:   createdAt,
+        Type:        "NORMAL",
+        MaxDevices:  CONFIG.MAX_DEVICES
+      };
+
+      const res = await fetch(
+        `${CONFIG.FIREBASE_URL}/ValidKeys/NormalKey/${key}.json?auth=${CONFIG.FIREBASE_SECRET}`,
+        {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(keyData)
+        }
+      );
+      if (!res.ok) throw new Error('Lỗi lưu key vào Firebase!');
+    }
+
+    // ── MAIN ────────────────────────────────────────────────────
+    async function generate() {
+      const btn    = document.getElementById('btnGen');
+      const msgBox = document.getElementById('messageBox');
+      msgBox.className = 'message-box';
+      msgBox.textContent = '';
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="btn-spinner"></span> ĐANG XỬ LÝ...';
+
+      try {
+        const key = generateKey();
+
+        // Lưu key Firebase trước
+        await saveKeyToFirebase(key, selectedHours);
+
+        // Build callback URL
+        const callbackUrl = CONFIG.CALLBACK_URL;
+        const sep = callbackUrl.includes('?') ? '&' : '?';
+        const finalUrl = `${callbackUrl}${sep}key=${encodeURIComponent(key)}`;
+
+        let shortenedUrl;
+
+        if (selectedHours === 12) {
+          // 12h: 1 link - Link4m 12h
+          shortenedUrl = await shortenLink4m(CONFIG.LINK4M_12H, finalUrl);
+        } else {
+          // 24h: Link4m 24h → lồng Taplayma
+          const link4mUrl = await shortenLink4m(CONFIG.LINK4M_24H, finalUrl);
+          shortenedUrl = await wrapTaplayma(link4mUrl);
+        }
+
+        window.open(shortenedUrl, '_blank');
+        showSuccess(`✅ Key ${selectedHours}h đã tạo! Vượt link để nhận key.`);
+
+      } catch (err) {
+        showError('❌ ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span class="btn-text">[ TẠO KEY ]</span>';
+      }
+    }
+  </script>
+</body>
+</html>

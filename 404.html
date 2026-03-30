@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBooster — 404</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://pl28957322.profitablecpmratenetwork.com/67/80/60/6780604853e95fcf0ec19f9571715fa6.js"></script>
+    <style>
+      :root {
+        --bg: #04060d;
+        --card: rgba(10, 14, 26, 0.85);
+        --accent: #00e5ff;
+        --accent2: #7b61ff;
+        --green: #00ffaa;
+        --text: #e8eaf0;
+        --muted: rgba(200, 210, 230, 0.45);
+        --border: rgba(0, 229, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      .bg-grid {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      .bg-orb {
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+        border-radius: 50%;
+        filter: blur(80px);
+        animation: orbFloat 10s ease-in-out infinite alternate;
+      }
+
+      .bg-orb-1 {
+        width: 500px;
+        height: 500px;
+        top: -150px;
+        left: -150px;
+        background: rgba(255, 0, 85, 0.05);
+      }
+
+      .bg-orb-2 {
+        width: 400px;
+        height: 400px;
+        bottom: -100px;
+        right: -100px;
+        background: rgba(123, 97, 255, 0.06);
+        animation-delay: -4s;
+        animation-direction: alternate-reverse;
+      }
+
+      @keyframes orbFloat {
+        from {
+          transform: scale(1) translate(0, 0);
+        }
+
+        to {
+          transform: scale(1.2) translate(15px, -15px);
+        }
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 24px 40px;
+      }
+
+      .big-404 {
+        font-family: 'Space Mono', monospace;
+        font-size: clamp(7rem, 25vw, 12rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -4px;
+        background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(123, 97, 255, 0.1));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        position: relative;
+        user-select: none;
+        animation: fadeUp 0.5s ease forwards;
+        -webkit-text-stroke: 1px rgba(0, 229, 255, 0.25);
+      }
+
+      .big-404::before,
+      .big-404::after {
+        content: '404';
+        position: absolute;
+        inset: 0;
+        font-family: 'Space Mono', monospace;
+        font-size: inherit;
+        font-weight: 700;
+        letter-spacing: -4px;
+        -webkit-background-clip: unset;
+        background: none;
+        -webkit-text-stroke: 0;
+        -webkit-text-fill-color: unset;
+      }
+
+      .big-404::before {
+        color: rgba(0, 229, 255, 0.3);
+        animation: glitch1 4s infinite;
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+      }
+
+      .big-404::after {
+        color: rgba(255, 0, 85, 0.2);
+        animation: glitch2 4s infinite;
+        clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+      }
+
+      @keyframes glitch1 {
+
+        0%,
+        90%,
+        100% {
+          transform: translate(0);
+        }
+
+        91% {
+          transform: translate(-3px, 1px);
+        }
+
+        93% {
+          transform: translate(3px, -1px);
+        }
+
+        95% {
+          transform: translate(-2px, 0);
+        }
+      }
+
+      @keyframes glitch2 {
+
+        0%,
+        90%,
+        100% {
+          transform: translate(0);
+        }
+
+        92% {
+          transform: translate(3px, 1px);
+        }
+
+        94% {
+          transform: translate(-3px, -1px);
+        }
+
+        96% {
+          transform: translate(2px, 0);
+        }
+      }
+
+      .err-code {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.65rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 0, 85, 0.6);
+        border: 1px solid rgba(255, 0, 85, 0.2);
+        background: rgba(255, 0, 85, 0.06);
+        padding: 4px 14px;
+        border-radius: 20px;
+        margin-top: -8px;
+        margin-bottom: 28px;
+        animation: fadeUp 0.5s ease 0.15s both;
+      }
+
+      .title {
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 12px;
+        animation: fadeUp 0.5s ease 0.25s both;
+      }
+
+      .sub {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.6;
+        max-width: 360px;
+        margin-bottom: 40px;
+        animation: fadeUp 0.5s ease 0.35s both;
+      }
+
+      .btn-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        animation: fadeUp 0.5s ease 0.45s both;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        border-radius: 14px;
+        border: none;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn:hover::after {
+        opacity: 1;
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .btn-home {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: #000;
+        box-shadow: 0 4px 30px rgba(0, 229, 255, 0.2);
+      }
+
+      .btn-home:hover {
+        box-shadow: 0 8px 40px rgba(0, 229, 255, 0.35);
+      }
+
+      .btn-back {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .btn-back:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(0, 229, 255, 0.3);
+      }
+
+      footer {
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid var(--border);
+        background: rgba(10, 14, 26, 0.6);
+        backdrop-filter: blur(12px);
+        padding: 32px 24px;
+      }
+
+      .footer-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .footer-copy {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .footer-copy span {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 18px;
+      }
+
+      .footer-links a {
+        font-size: 0.75rem;
+        color: rgba(0, 229, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+
+    <div class="wrap">
+      <div class="big-404">404</div>
+      <div class="err-code">PAGE NOT FOUND</div>
+      <div class="title">Trang không tồn tại</div>
+      <p class="sub">Trang bạn đang tìm kiếm đã bị xóa, đổi tên hoặc chưa bao giờ tồn tại.</p>
+      <div class="btn-row">
+        <a href="index.html" class="btn btn-home">
+          <i class="fas fa-house"></i> Về Trang Chủ
+        </a>
+        <a href="javascript:history.back()" class="btn btn-back">
+          <i class="fas fa-arrow-left"></i> Quay Lại
+        </a>
+      </div>
+    </div>
+
+    <div style="position:relative;z-index:1;display:flex;justify-content:center;padding:0 24px 36px;">
+      <script>
+        atOptions = {
+          'key': '53390f363529fb0c7b3813e12ae87e0a',
+          'format': 'iframe',
+          'height': 250,
+          'width': 300,
+          'params': {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/53390f363529fb0c7b3813e12ae87e0a/invoke.js"></script>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-copy">
+          © 2026 <span>GameBooster</span> · All rights reserved
+        </div>
+        <div class="footer-links">
+          <a href="terms.html">Điều khoản</a>
+          <a href="privacy.html">Bảo mật</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBooster — Chính Sách Bảo Mật</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://pl28957322.profitablecpmratenetwork.com/67/80/60/6780604853e95fcf0ec19f9571715fa6.js"></script>
+    <style>
+      :root {
+        --bg: #04060d;
+        --card: rgba(10, 14, 26, 0.85);
+        --accent: #00e5ff;
+        --accent2: #7b61ff;
+        --green: #00ffaa;
+        --text: #e8eaf0;
+        --muted: rgba(200, 210, 230, 0.45);
+        --border: rgba(0, 229, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      .bg-grid {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      .bg-orb {
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+        border-radius: 50%;
+        filter: blur(80px);
+      }
+
+      .bg-orb-1 {
+        width: 500px;
+        height: 500px;
+        top: -150px;
+        right: -150px;
+        background: rgba(123, 97, 255, 0.05);
+        animation: orbFloat 10s ease-in-out infinite alternate;
+      }
+
+      .bg-orb-2 {
+        width: 400px;
+        height: 400px;
+        bottom: -100px;
+        left: -100px;
+        background: rgba(0, 229, 255, 0.04);
+        animation: orbFloat 13s ease-in-out infinite alternate-reverse;
+      }
+
+      @keyframes orbFloat {
+        from {
+          transform: scale(1);
+        }
+
+        to {
+          transform: scale(1.15) translate(10px, -10px);
+        }
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(4, 6, 13, 0.7);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-back {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+
+        transition: color 0.2s, border-color 0.2s;
+      }
+
+      .nav-back:hover {
+        color: var(--accent);
+        border-color: rgba(0, 229, 255, 0.3);
+      }
+
+      .nav-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      .nav-title span {
+        color: var(--accent);
+      }
+
+      .main-content {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+      }
+
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 24px 64px;
+      }
+
+      .doc-hero {
+        margin-bottom: 48px;
+        animation: fadeUp 0.5s ease forwards;
+      }
+
+      .doc-tag {
+
+        font-size: 0.62rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent2);
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .doc-title {
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.1;
+        margin-bottom: 16px;
+      }
+
+      .doc-meta {
+
+        font-size: 0.72rem;
+        color: var(--muted);
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .doc-meta span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        margin-bottom: 16px;
+        backdrop-filter: blur(16px);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeUp 0.5s ease forwards;
+      }
+
+      .section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent2), transparent);
+        opacity: 0.3;
+      }
+
+      .section:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .section:nth-child(2) {
+        animation-delay: 0.18s;
+      }
+
+      .section:nth-child(3) {
+        animation-delay: 0.26s;
+      }
+
+      .section:nth-child(4) {
+        animation-delay: 0.34s;
+      }
+
+      .section:nth-child(5) {
+        animation-delay: 0.42s;
+      }
+
+      .section:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+
+      .section:nth-child(7) {
+        animation-delay: 0.58s;
+      }
+
+      .section:nth-child(8) {
+        animation-delay: 0.66s;
+      }
+
+      .section-num {
+
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--accent2);
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .section h2 {
+        font-size: 1.05rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+        letter-spacing: -0.2px;
+      }
+
+      .section p {
+        font-size: 0.875rem;
+        color: rgba(200, 210, 230, 0.75);
+        line-height: 1.75;
+        margin-bottom: 12px;
+      }
+
+      .section p:last-child {
+        margin-bottom: 0;
+      }
+
+      .section ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .section ul li {
+        font-size: 0.875rem;
+        color: rgba(200, 210, 230, 0.75);
+        line-height: 1.6;
+        padding-left: 18px;
+        position: relative;
+      }
+
+      .section ul li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent2);
+        opacity: 0.6;
+      }
+
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 16px;
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 0.8rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .data-table th {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .data-table td {
+        color: rgba(200, 210, 230, 0.75);
+        line-height: 1.5;
+      }
+
+      .data-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .data-table code {
+        font-size: 0.75rem;
+        background: rgba(0, 229, 255, 0.08);
+        color: var(--accent);
+        padding: 2px 7px;
+        border-radius: 5px;
+      }
+
+      .highlight-box {
+        background: rgba(123, 97, 255, 0.06);
+        border: 1px solid rgba(123, 97, 255, 0.2);
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-top: 16px;
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .highlight-box i {
+        color: var(--accent2);
+        margin-right: 8px;
+      }
+
+      .highlight-box.good {
+        background: rgba(0, 255, 170, 0.05);
+        border-color: rgba(0, 255, 170, 0.15);
+      }
+
+      .highlight-box.good i {
+        color: var(--green);
+      }
+
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.875rem;
+        margin-top: 12px;
+        transition: opacity 0.2s;
+      }
+
+      .contact-link:hover {
+        opacity: 0.75;
+      }
+
+      footer {
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid var(--border);
+        background: rgba(10, 14, 26, 0.6);
+        backdrop-filter: blur(12px);
+        padding: 32px 24px;
+      }
+
+      .footer-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .footer-copy {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .footer-copy span {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 18px;
+      }
+
+      .footer-links a {
+        font-size: 0.75rem;
+        color: rgba(0, 229, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.2s;
+
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 500px) {
+        .section {
+          padding: 24px 20px;
+        }
+
+        .data-table th,
+        .data-table td {
+          padding: 10px 12px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+
+    <nav>
+      <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i></a>
+      <div class="nav-title">Game<span> Booster</span></div>
+    </nav>
+
+    <div class="main-content">
+      <div class="wrap">
+
+        <div class="doc-hero">
+          <span class="doc-tag">Pháp lý</span>
+          <h1 class="doc-title">Chính Sách<br>Bảo Mật</h1>
+          <div class="doc-meta">
+            <span><i class="fas fa-calendar-alt"></i> Cập nhật: 27/02/2026</span>
+            <span><i class="fas fa-language"></i> Tiếng Việt</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-num">01</span>
+          <h2>Tổng Quan</h2>
+          <p>GameBooster ("chúng tôi") cam kết bảo vệ quyền riêng tư của bạn. Chính sách này mô tả những thông tin chúng tôi thu thập, cách sử dụng và cách bảo vệ thông tin đó khi bạn sử dụng ứng dụng.</p>
+          <div class="highlight-box good">
+            <i class="fas fa-shield-halved"></i>
+            Chúng tôi thu thập thông tin ở mức tối thiểu cần thiết để vận hành dịch vụ. Chúng tôi không bán, không chia sẻ dữ liệu cá nhân của bạn cho bất kỳ bên thứ ba nào vì mục đích thương mại.
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-num">02</span>
+          <h2>Thông Tin Chúng Tôi Thu Thập</h2>
+          <p>Để cung cấp dịch vụ xác thực key, chúng tôi lưu trữ các thông tin sau trên Firebase Realtime Database:</p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Dữ liệu</th>
+                <th>Mục đích</th>
+                <th>Lưu trữ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Android ID</code></td>
+                <td>Xác định thiết bị, liên kết key với máy</td>
+                <td>Firebase — cho đến khi key hết hạn hoặc bị xóa</td>
+              </tr>
+              <tr>
+                <td><code>Key đã kích hoạt</code></td>
+                <td>Xác thực quyền truy cập vào ứng dụng</td>
+                <td>Firebase — cho đến khi hết hạn</td>
+              </tr>
+              <tr>
+                <td><code>Thời gian hết hạn</code></td>
+                <td>Kiểm soát thời hạn sử dụng</td>
+                <td>Firebase + thiết bị</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="highlight-box">
+            <i class="fas fa-info-circle"></i>
+            Android ID là mã định danh được tạo bởi hệ thống Android, không chứa thông tin cá nhân như tên, số điện thoại hay vị trí.
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-num">03</span>
+          <h2>Chúng tôi cam kết</h2>
+          <p>GameBooster không thu thập và không có quyền truy cập vào:</p>
+          <ul>
+            <li>Tên, số điện thoại, địa chỉ email hay bất kỳ thông tin định danh cá nhân nào</li>
+            <li>Vị trí địa lý của thiết bị</li>
+            <li>Danh sách ứng dụng đã cài đặt trên máy</li>
+            <li>Dữ liệu tài khoản game, tin nhắn hay nội dung cá nhân</li>
+            <li>Thông tin thanh toán hay tài chính</li>
+            <li>Dữ liệu sử dụng hay hành vi trong ứng dụng</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <span class="section-num">04</span>
+          <h2>Cách Sử Dụng Thông Tin</h2>
+          <p>Thông tin được thu thập chỉ được sử dụng cho các mục đích sau:</p>
+          <ul>
+            <li>Xác thực key và kiểm soát quyền truy cập vào ứng dụng</li>
+            <li>Phát hiện và ngăn chặn hành vi gian lận hoặc lạm dụng hệ thống</li>
+            <li>Vô hiệu hóa thiết bị vi phạm điều khoản sử dụng</li>
+            <li>Cải thiện độ ổn định và hiệu suất của hệ thống xác thực</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <span class="section-num">05</span>
+          <h2>Lưu Trữ & Bảo Mật</h2>
+          <p>Dữ liệu được lưu trữ trên Firebase Realtime Database (Google) với các biện pháp bảo mật tiêu chuẩn của nền tảng. Dữ liệu truyền đi giữa ứng dụng và server được mã hóa qua HTTPS.</p>
+          <p>Dữ liệu lưu trên Firebase Realtime Database chỉ bao gồm thời gian hết hạn key và không thể truy cập bởi ứng dụng khác.</p>
+          <div class="highlight-box">
+            <i class="fas fa-database"></i>
+            Dữ liệu key hết hạn sẽ được xóa tự động hoặc khi admi  dọn dẹp hệ thống. Chúng tôi không lưu trữ lịch sử sử dụng lâu dài.
+          </div>
+        </div>
+
+        <div class="section">
+          <span class="section-num">06</span>
+          <h2>Chia Sẻ Thông Tin</h2>
+          <p>Chúng tôi không bán, trao đổi hay chuyển giao thông tin của bạn cho bên thứ ba, ngoại trừ:</p>
+          <ul>
+            <li>Firebase (Google) — nhà cung cấp hạ tầng lưu trữ dữ liệu</li>
+            <li>Khi được yêu cầu bởi pháp luật hoặc cơ quan có thẩm quyền</li>
+          </ul>
+          <p style="margin-top:12px;">Firebase tuân thủ chính sách bảo mật của Google. Xem thêm tại <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--accent);">policies.google.com/privacy</a>.</p>
+        </div>
+
+        <div class="section">
+          <span class="section-num">07</span>
+          <h2>Quyền Của Bạn</h2>
+          <p>Bạn có quyền:</p>
+          <ul>
+            <li>Yêu cầu xóa Android ID và dữ liệu liên quan khỏi hệ thống của chúng tôi</li>
+            <li>Gỡ cài đặt ứng dụng bất kỳ lúc nào — dữ liệu trên thiết bị sẽ bị xóa ngay lập tức</li>
+            <li>Liên hệ chúng tôi để biết thêm thông tin về dữ liệu được lưu trữ</li>
+          </ul>
+          <p style="margin-top:12px;">Để thực hiện các quyền trên, vui lòng liên hệ trực tiếp với chúng tôi.</p>
+        </div>
+
+        <div class="section">
+          <span class="section-num">08</span>
+          <h2>Liên Hệ</h2>
+          <p>Nếu bạn có câu hỏi hoặc lo ngại về chính sách bảo mật này, vui lòng liên hệ với chúng tôi:</p>
+          <a href="https://zalo.me/84936384089" class="contact-link" target="_blank">
+            <i class="fas fa-phone"></i> Liên hệ qua Zalo
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="position:relative;z-index:1;display:flex;justify-content:center;padding:0 24px 36px;">
+      <script>
+        atOptions = {
+          'key': '53390f363529fb0c7b3813e12ae87e0a',
+          'format': 'iframe',
+          'height': 250,
+          'width': 300,
+          'params': {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/53390f363529fb0c7b3813e12ae87e0a/invoke.js"></script>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-copy">© 2026 <span>GameBooster</span> · All rights reserved</div>
+        <div class="footer-links">
+          <a href="terms.html">Điều khoản</a>
+          <a href="privacy.html">Bảo mật</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+
+</html>
